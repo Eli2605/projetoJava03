@@ -38,7 +38,7 @@ public class ProdutoRepository {
 
 			var connection = ConnectionFactory.getConnection();
 
-			var statement = connection.prepareStatement("UPDATE produto SET nome=?, preco=?, quantidade=? WHERE id=?");
+			var statement = connection.prepareStatement("UPDATE produto_01 SET nome=?, preco=?, quantidade=? WHERE id=?");
 			statement.setString(1, produto.getNome());
 			statement.setDouble(2, produto.getPreco());
 			statement.setInt(3, produto.getQuantidade());
@@ -61,7 +61,7 @@ public class ProdutoRepository {
 
 			var connection = ConnectionFactory.getConnection();
 
-			var statement = connection.prepareStatement("DELETE FROM produto WHERE id=?");
+			var statement = connection.prepareStatement("DELETE FROM produto_01 WHERE id=?");
 			statement.setObject(1, id);
 			statement.execute(); // execute só grava , alterar, excluir ele não devolve nada.
 
@@ -85,7 +85,7 @@ public class ProdutoRepository {
 			
 			var connection = ConnectionFactory.getConnection();
 			
-			var statement = connection.prepareStatement("SELECT id, nome, preco, quantidade FROM produto ORDER BY nome");
+			var statement = connection.prepareStatement("SELECT id, nome, preco, quantidade FROM produto_01 ORDER BY nome");
 			var result = statement.executeQuery();// executeQuery excuta e devolve a consulta
 			
 			//enquanto houver produto, leia.
@@ -127,7 +127,7 @@ public class ProdutoRepository {
 			var connection = ConnectionFactory.getConnection();
 			
 			//escrever o comando SQL que será executado nop banco de dados 
-			var statement = connection.prepareStatement("SELECT id, nome, preco, quantidade FROM produto WHERE id=?");
+			var statement = connection.prepareStatement("SELECT id, nome, preco, quantidade FROM produto_01 WHERE id=?");
 			statement.setObject(1, id);
 			var result = statement.executeQuery();
 			
